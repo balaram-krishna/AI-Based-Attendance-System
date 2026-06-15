@@ -1,30 +1,15 @@
 import streamlit as st
+import pkg_resources
 
-st.title("Dependency Test")
+st.title("Package Check")
 
-try:
-    import cv2
-    st.success(f"OpenCV OK: {cv2.__version__}")
-except Exception as e:
-    st.error(f"OpenCV Error: {e}")
+packages = sorted(
+    [f"{d.project_name}=={d.version}" for d in pkg_resources.working_set]
+)
 
-try:
-    from PIL import Image
-    st.success("Pillow OK")
-except Exception as e:
-    st.error(f"Pillow Error: {e}")
-
-try:
-    import onnxruntime
-    st.success("ONNX Runtime OK")
-except Exception as e:
-    st.error(f"ONNX Error: {e}")
-
-try:
-    from insightface.app import FaceAnalysis
-    st.success("InsightFace OK")
-except Exception as e:
-    st.error(f"InsightFace Error: {e}")
+for p in packages:
+    if "opencv" in p.lower():
+        st.write(p)
 import os
 import cv2
 import numpy as np
