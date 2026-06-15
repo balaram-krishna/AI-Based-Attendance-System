@@ -1,7 +1,7 @@
 streamlit==1.58.0
-numpy
+numpy<2.0
 pandas
-opencv-python-headless
+opencv-python-headless==4.10.0.84
 insightface
 onnxruntime
 pillow
