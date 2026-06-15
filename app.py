@@ -1,7 +1,12 @@
 import streamlit as st
 
-st.title("Test App")
-st.success("Streamlit is working")
+st.title("OpenCV Test")
+
+try:
+    import cv2
+    st.success(f"OpenCV loaded successfully: {cv2.__version__}")
+except Exception as e:
+    st.error(str(e))
 import os
 import cv2
 import numpy as np
