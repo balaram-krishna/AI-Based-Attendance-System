@@ -1,12 +1,30 @@
 import streamlit as st
 
-st.title("OpenCV Test")
+st.title("Dependency Test")
 
 try:
     import cv2
-    st.success(f"OpenCV loaded successfully: {cv2.__version__}")
+    st.success(f"OpenCV OK: {cv2.__version__}")
 except Exception as e:
-    st.error(str(e))
+    st.error(f"OpenCV Error: {e}")
+
+try:
+    from PIL import Image
+    st.success("Pillow OK")
+except Exception as e:
+    st.error(f"Pillow Error: {e}")
+
+try:
+    import onnxruntime
+    st.success("ONNX Runtime OK")
+except Exception as e:
+    st.error(f"ONNX Error: {e}")
+
+try:
+    from insightface.app import FaceAnalysis
+    st.success("InsightFace OK")
+except Exception as e:
+    st.error(f"InsightFace Error: {e}")
 import os
 import cv2
 import numpy as np
