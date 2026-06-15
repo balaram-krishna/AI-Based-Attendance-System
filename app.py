@@ -1,15 +1,4 @@
-import streamlit as st
-import pkg_resources
 
-st.title("Package Check")
-
-packages = sorted(
-    [f"{d.project_name}=={d.version}" for d in pkg_resources.working_set]
-)
-
-for p in packages:
-    if "opencv" in p.lower():
-        st.write(p)
 import os
 import cv2
 import numpy as np
